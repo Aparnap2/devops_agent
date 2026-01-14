@@ -1,0 +1,22 @@
+# Chaos Mesh: OOM Stress Experiment
+# Causes memory pressure to trigger OOMKilled events
+apiVersion: chaos-mesh.org/v1alpha1
+kind: StressChaos
+metadata:
+  name: oom-stress-demo
+  namespace: chaos-mesh
+  labels:
+    experiment: oom
+    app: demo-app
+spec:
+  mode: one
+  selector:
+    namespaces:
+      - prod
+    labelSelectors:
+      app: demo-app
+  stressors:
+    memory:
+      workers: 1
+      size: "256MB"
+  duration: "30s"

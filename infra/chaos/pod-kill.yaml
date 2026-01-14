@@ -1,0 +1,19 @@
+# Chaos Mesh: Pod Kill Experiment
+# Kills a random pod in the prod namespace
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: pod-kill-demo
+  namespace: chaos-mesh
+  labels:
+    experiment: pod-kill
+    app: demo-app
+spec:
+  action: pod-kill
+  mode: one
+  selector:
+    namespaces:
+      - prod
+    labelSelectors:
+      app: demo-app
+  # Duration is not applicable for pod-kill (one-shot action)

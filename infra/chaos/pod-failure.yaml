@@ -1,0 +1,19 @@
+# Chaos Mesh: Pod Failure Experiment
+# Causes pod to fail (container crash)
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: pod-failure-demo
+  namespace: chaos-mesh
+  labels:
+    experiment: pod-failure
+    app: demo-app
+spec:
+  action: pod-failure
+  mode: one
+  selector:
+    namespaces:
+      - prod
+    labelSelectors:
+      app: demo-app
+  duration: "30s"

@@ -1,0 +1,23 @@
+# Chaos Mesh: Network Delay Experiment
+# Introduces latency to simulate network issues
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: network-delay-demo
+  namespace: chaos-mesh
+  labels:
+    experiment: network-delay
+    app: demo-app
+spec:
+  action: delay
+  mode: all
+  selector:
+    namespaces:
+      - prod
+    labelSelectors:
+      app: demo-app
+  delay:
+    latency: "500ms"
+    correlation: "50"
+    jitter: "100ms"
+  duration: "60s"

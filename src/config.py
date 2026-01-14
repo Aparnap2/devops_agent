@@ -42,6 +42,11 @@ class Settings(BaseSettings):
     # Jaeger
     jaeger_url: str = "http://localhost:16686"
 
+    # Ollama (local LLM)
+    ollama_base_url: str = "http://localhost:11434"
+    ollama_model: str = "sam860/LFM2:2.6b"
+    ollama_timeout: int = 120
+
     class Config:
         env_prefix = "DEVOPS_AGENT_"
 
