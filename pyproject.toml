@@ -43,7 +43,7 @@ dependencies = [
     # Streamlit for Control Tower UI
     "streamlit>=1.40.0",
     "openai>=2.15.0",
-    "crawl4ai>=0.7.8",
+    "asyncpg>=0.31.0",
 ]
 
 [project.optional-dependencies]

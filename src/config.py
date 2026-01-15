@@ -23,7 +23,7 @@ class Settings(BaseSettings):
     # PostgreSQL/PGVector
     pg_host: str = "localhost"
     pg_port: int = 5432
-    pg_database: str = "postgres"
+    pg_database: str = "devops_agent"
     pg_user: str = "postgres"
     pg_password: str | None = None
 
@@ -44,7 +44,7 @@ class Settings(BaseSettings):
 
     # Ollama (local LLM)
     ollama_base_url: str = "http://localhost:11434"
-    ollama_model: str = "sam860/LFM2:2.6b"
+    ollama_model: str = "granite3.1-moe:3b"
     ollama_timeout: int = 120
 
     class Config:
